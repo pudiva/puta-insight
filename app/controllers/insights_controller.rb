@@ -1,4 +1,5 @@
 class InsightsController < ApplicationController
+  http_basic_authenticate_with name: ENV.fetch("USER"), password: ENV.fetch("PASS"), except: %i(new create)
 
   def index
     @insights = Insight.all
