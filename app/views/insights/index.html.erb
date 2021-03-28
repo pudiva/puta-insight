@@ -2,11 +2,15 @@
 
 <h1>Insights</h1>
 
+<p><%= link_to 'New Insight', new_insight_path %></p>
+
 <table>
   <thead>
     <tr>
-      <th>Q1</th>
-      <th>Q2</th>
+      <th>Id</th>
+      <th>Data/Hora</th>
+      <th>Pergunta 1</th>
+      <th>Pergunta 2</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,16 +18,13 @@
   <tbody>
     <% @insights.each do |insight| %>
       <tr>
+        <td><%= insight.id %></td>
+        <td><%= insight.created_at %></td>
         <td><%= insight.q1 %></td>
         <td><%= insight.q2 %></td>
-        <td><%= link_to 'Show', insight %></td>
-        <td><%= link_to 'Edit', edit_insight_path(insight) %></td>
-        <td><%= link_to 'Destroy', insight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%# link_to 'Destroy', insight, method: :delete, data: { confirm: 'Você está certa disso?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Insight', new_insight_path %>

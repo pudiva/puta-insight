@@ -9,12 +9,15 @@ class InsightsController < ApplicationController
     @insight = Insight.new
   end
 
+  def thanks
+  end
+
   def create
     @insight = Insight.new(insight_params)
 
     respond_to do |format|
       if @insight.save
-        format.html { redirect_to @insight, notice: "Insight was successfully created." }
+        format.html { redirect_to :thanks }
         format.json { render :show, status: :created, location: @insight }
       else
         format.html { render :new, status: :unprocessable_entity }
