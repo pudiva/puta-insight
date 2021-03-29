@@ -17,7 +17,7 @@ class InsightsController < ApplicationController
 
     respond_to do |format|
       if @insight.save
-        format.html { redirect_to :thanks }
+        format.html { redirect_to thanks_insights_path }
         format.json { render :show, status: :created, location: @insight }
       else
         format.html { render :new, status: :unprocessable_entity }
