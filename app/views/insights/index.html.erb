@@ -9,8 +9,7 @@
     <tr>
       <th>Id</th>
       <th>Data/Hora</th>
-      <th>Pergunta 1</th>
-      <th>Pergunta 2</th>
+      <th>Texto</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,8 +19,7 @@
       <tr>
         <td><%= insight.id %></td>
         <td><%= insight.created_at %></td>
-        <td><%= insight.q1 %></td>
-        <td><%= insight.q2 %></td>
+        <td><%= insight.body %></td>
         <td><%# link_to 'Destroy', insight, method: :delete, data: { confirm: 'Você está certa disso?' } %></td>
       </tr>
     <% end %>

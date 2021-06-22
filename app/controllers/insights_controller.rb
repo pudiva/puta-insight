@@ -38,6 +38,6 @@ class InsightsController < ApplicationController
   private
 
   def insight_params
-    params.require(:insight).permit(:q1, :q2)
+    params.require(:insight).permit(:body)
   end
 end
