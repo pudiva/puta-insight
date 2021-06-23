@@ -1,28 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Insights</h1>
-
-<p><%= link_to 'New Insight', new_insight_path %></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Data/Hora</th>
-      <th>Texto</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @insights.each do |insight| %>
-      <tr>
-        <td><%= insight.id %></td>
-        <td><%= insight.created_at %></td>
-        <td><%= insight.body %></td>
-        <td><%# link_to 'Destroy', insight, method: :delete, data: { confirm: 'Você está certa disso?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="container">
+  <div class="item">
+    <%= render 'form', insight: @new_insight %>
+  </div>
+  <% @insights.each do |insight| %>
+    <div class="item">
+      <pre>
+        <%= insight.body %>
+      </pre>
+    </div>
+  <% end %>
+</div>

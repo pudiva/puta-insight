@@ -1,8 +1,9 @@
 class InsightsController < ApplicationController
-  http_basic_authenticate_with name: ENV.fetch("USER"), password: ENV.fetch("PASS"), except: %i(new create thanks)
+  #http_basic_authenticate_with name: ENV.fetch("USER"), password: ENV.fetch("PASS"), except: %i(new create thanks)
 
   def index
-    @insights = Insight.all
+    set_insights
+    @new_insight = Insight.new
   end
 
   def new
@@ -13,15 +14,16 @@ class InsightsController < ApplicationController
   end
 
   def create
-    @insight = Insight.new(insight_params)
+    set_insights
+    @new_insight = Insight.new(insight_params)
 
     respond_to do |format|
-      if @insight.save
-        format.html { redirect_to thanks_insights_path }
-        format.json { render :show, status: :created, location: @insight }
+      if @new_insight.save
+        format.html { redirect_to insights_path, notice: "Insight salvo! Insight saved!" }
+        format.json { render :show, status: :created, location: @new_insight }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @insight.errors, status: :unprocessable_entity }
+        format.html { render :index, status: :unprocessable_entity }
+        format.json { render json: @new_insight.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -36,6 +38,10 @@ class InsightsController < ApplicationController
   end
 
   private
+
+  def set_insights
+    @insights = Insight.all.order(id: :desc)
+  end
 
   def insight_params
     params.require(:insight).permit(:body)

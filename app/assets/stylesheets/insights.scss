@@ -2,6 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body, textarea {
+  font-size: 12pt;
+}
+
+/*
+@media screen and (min-width: 800px) {
+  body, textarea {
+    font-size: 18pt;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  body, textarea {
+    font-size: 32pt;
+  }
+}
+*/
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 table {
   border: thin solid;
 }
@@ -10,4 +33,16 @@ td, th {
   border-style: inset;
   border: thin solid;
   padding: 1ex;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  padding: -1em;
+}
+
+.item {
+  margin: 1em;
+  max-width: 33.3em;
 }
