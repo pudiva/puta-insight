@@ -38,11 +38,9 @@ td, th {
 .container {
   display: flex;
   flex-flow: row wrap;
-  align-items: flex-start;
-  padding: -1em;
 }
 
 .item {
   margin: 1em;
-  max-width: 33.3em;
+  max-width: 30em;
 }
